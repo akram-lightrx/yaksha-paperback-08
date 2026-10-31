@@ -1,4 +1,4 @@
-# Yaksha Comics — Paperback 0.8
+# Yaksha Comics & Asura Scans — Paperback 0.8
 
 A repaired continuation of the original `yaksha-paperback-08.zip`, with selected Madara logic adapted from Nicartjay's 0.9 extension. The extension retains the `YakshaComics` source ID and existing manga/chapter slug IDs.
 
@@ -6,7 +6,7 @@ A repaired continuation of the original `yaksha-paperback-08.zip`, with selected
 
 ## Install
 
-Open **https://akram-lightrx.github.io/yaksha-paperback-08/** in Safari and tap **Add to Paperback**. Alternatively add that URL in Paperback's external source repository settings, then install **Yaksha Comics**.
+Open **https://akram-lightrx.github.io/yaksha-paperback-08/** in Safari and tap **Add to Paperback**. Alternatively add that URL in Paperback's external source repository settings, then install **Yaksha Comics** and/or **Asura Scans**.
 
 Build, live-site and iPhone validation are tracked in [VALIDATION.md](docs/VALIDATION.md).
 
@@ -60,3 +60,11 @@ Final installation, source visibility, covers and reading must be checked in Pap
 - [Adaptation and licence notices](THIRD_PARTY_NOTICES.md)
 
 The website's older narrative examples include pre-0.8 names; implementation signatures were checked against the installed official 0.8.7 type definitions.
+
+## Asura Scans
+
+Asura Scans targets **https://asurascans.com** and is a separate installable source in the same repository. Refresh the repository in Paperback to see it. It supports title search, empty-search latest browsing, paginated results, manga details and public chapter lists.
+
+The Asura source adapts Nicartjay's JSON API and Astro parsing to 0.8.7. Public chapter pages preserve image order; tiled images use Paperback's native PBImage/PBCanvas APIs. Premium, locked and active early-access chapters are omitted. No Asura login or membership integration is included.
+
+Run `npm run test:asura:live` after building to check the compiled source against the live site. Node tests cover tile placement using a small pixel-grid canvas double; actual native rendering must be confirmed on iPhone. See [Asura validation](docs/ASURA_VALIDATION.md).

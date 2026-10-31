@@ -17,3 +17,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
+## Asura Scans
+
+The Asura source adapts the public API routes, Astro serialized props, premium/early-access flags and tile mapping from [Nicartjay's AsuraScans source](https://github.com/Nicartjay/PaperbackExt/blob/0.9/stable/src/AsuraScans/main.ts), inspected at blob `07eec84d275d093260ab1b524293e73f88ba66b3`. The native 0.8 request/model/canvas integration is new. The MIT notice is also distributed in `src/AsuraScans/includes/Nicartjay-MIT-LICENSE.txt`. The Asura icon is an original simple monogram, not the site's logo.
