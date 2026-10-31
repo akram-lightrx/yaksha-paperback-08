@@ -18,7 +18,6 @@ s.requestManager.schedule=async raw=>{
   const req=await s.requestManager.interceptor.interceptRequest(raw);
   const r=await request(req.url,req.headers);
   const data=await r.text();
-  if(req.url.includes('zzzzqnoresult'))console.log('ASURA_EMPTY_RESPONSE '+data.slice(0,1000));
   return s.requestManager.interceptor.interceptResponse({status:r.status,headers:Object.fromEntries(r.headers),data,request:req});
 };
 async function image(url,label){

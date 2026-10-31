@@ -77,6 +77,10 @@ function restoreImage(response: Response): Response {
   const data = canvas.encode('image/jpeg')
   if (!data) throw new Error('Asura Scans could not reconstruct the chapter image.')
   response.rawData = data
+  for (const key of Object.keys(response.headers)) {
+    if (key.toLowerCase() === 'content-type') response.headers[key] = 'image/jpeg'
+  }
+  response.headers['content-type'] = 'image/jpeg'
   return response
 }
 
@@ -128,12 +132,17 @@ export class AsuraScans extends Source {
       if (error instanceof Error && /HTTP /.test(error.message)) throw error
       throw new Error('Asura Scans search response is unavailable or invalid JSON.')
     }
-    if (!object(data) || !Array.isArray(data.data) || !object(data.meta) || typeof data.meta.has_more !== 'boolean') {
+    if (!object(data) || !object(data.meta)
+      || (data.meta.has_more !== undefined && typeof data.meta.has_more !== 'boolean')) {
       throw new Error('Asura Scans search response is invalid.')
     }
+    // The API omits false has_more and returns null, not [], for no matches.
+    const rows = Array.isArray(data.data) ? data.data
+      : data.data === null && data.meta.has_more !== true && typeof data.meta.per_page === 'number' ? [] : undefined
+    if (!rows) throw new Error('Asura Scans search response is invalid.')
     const results: PartialSourceManga[] = []
     const seen = new Set<string>()
-    for (const item of data.data) {
+    for (const item of rows) {
       if (!object(item)) continue
       const publicURL = string(item.public_url).split(/[?#]/)[0] ?? ''
       const id = publicURL.split('/').filter(Boolean).pop() || string(item.slug)
@@ -143,7 +152,7 @@ export class AsuraScans extends Source {
       seen.add(id)
       results.push(App.createPartialSourceManga({ mangaId: id, title: name, image }))
     }
-    if (data.data.length && !results.length) throw new Error('Asura Scans search response has no valid series.')
+    if (rows.length && !results.length) throw new Error('Asura Scans search response has no valid series.')
     return App.createPagedResults({ results, metadata: results.length && data.meta.has_more ? { page: page + 1 } : undefined })
   }
   async getMangaDetails(id: string): Promise<SourceManga> {
