@@ -69,14 +69,14 @@ test('Asura rejects HTTP failures and path traversal before returning results',a
 });
 test('Asura image requests use site headers and native canvas restores tile order',async()=>{
   const s=source(()=>{});
-  const encoded=encodeURIComponent(JSON.stringify({tiles:[1,0,3,2],tileCols:2,tileRows:2}));
+  const encoded=encodeURIComponent(JSON.stringify({tiles:[1,2,0,3],tileCols:2,tileRows:2}));
   const request=await s.requestManager.interceptor.interceptRequest({url:'https://cdn.example/page.jpg#'+encoded,method:'GET'});
   assert.equal(request.headers.Referer,BASE+'/');assert.equal(request.headers.Origin,BASE);
   const oldImage=App.createPBImage,oldCanvas=App.createPBCanvas;
   try{
     App.createPBImage=({data})=>({width:2,height:2,data});
     App.createPBCanvas=()=>{const pixels=[];return {setSize(w,h){assert.equal(w,2);assert.equal(h,2)},drawImage(img,sx,sy,sw,sh,dx,dy){assert.equal(sw,1);assert.equal(sh,1);pixels[dy*2+dx]=img.data[sy*2+sx]},encode(format){assert.equal(format,'image/jpeg');return pixels}}};
-    const response=await s.requestManager.interceptor.interceptResponse({status:200,headers:{},rawData:['B','A','D','C'],request});
+    const response=await s.requestManager.interceptor.interceptResponse({status:200,headers:{},rawData:['B','C','A','D'],request});
     assert.deepEqual(response.rawData,['A','B','C','D']);
   }finally{App.createPBImage=oldImage;App.createPBCanvas=oldCanvas}
 });
