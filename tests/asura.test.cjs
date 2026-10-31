@@ -78,9 +78,17 @@ test('Asura image requests use site headers and native canvas restores tile orde
     App.createPBCanvas=()=>{const pixels=[];return {setSize(w,h){assert.equal(w,2);assert.equal(h,2)},drawImage(img,sx,sy,sw,sh,dx,dy){assert.equal(sw,1);assert.equal(sh,1);pixels[dy*2+dx]=img.data[sy*2+sx]},encode(format){assert.equal(format,'image/jpeg');return pixels}}};
     const response=await s.requestManager.interceptor.interceptResponse({status:200,headers:{},rawData:['B','C','A','D'],request});
     assert.deepEqual(response.rawData,['A','B','C','D']);
+    assert.equal(response.headers['content-type'],'image/jpeg');
   }finally{App.createPBImage=oldImage;App.createPBCanvas=oldCanvas}
 });
 test('Asura rejects invalid tile maps instead of displaying corrupt pages',async()=>{
   const s=source(()=>island({pages:[{url:'https://cdn.example/page.jpg',tiles:[0,0,2,3],tile_cols:2,tile_rows:2}]}));
   await assert.rejects(s.getChapterDetails('solo-test','1'),/tile|image/i);
+});
+
+test('Asura accepts the live null-list and omitted false pagination fields',async()=>{
+  const empty=await source(()=>JSON.stringify({data:null,meta:{per_page:20}})).getSearchResults({title:'zzzz'},undefined);
+  assert.equal(empty.results.length,0);assert.equal(empty.metadata,undefined);
+  const last=await source(()=>JSON.stringify({data:listing.data,meta:{per_page:20,total:1}})).getSearchResults({title:'Solo Test'},undefined);
+  assert.equal(last.results.length,1);assert.equal(last.metadata,undefined);
 });
