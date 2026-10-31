@@ -1,0 +1,24 @@
+{
+  "name": "yaksha-paperback-08",
+  "version": "1.0.1",
+  "repositoryName": "Yaksha Comics",
+  "description": "Yaksha Comics source for Paperback 0.8",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "bundle": "paperback bundle",
+    "build": "npm run typecheck && npm run bundle && node scripts/verify-bundle.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "serve": "paperback serve",
+    "test:live": "node scripts/live-test.cjs"
+  },
+  "dependencies": {
+    "@paperback/types": "0.8.7",
+    "@paperback/toolchain": "0.8.7"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.7",
+    "cheerio": "1.0.0-rc.12"
+  },
+  "baseURL": "https://akram-lightrx.github.io/yaksha-paperback-08/"
+}

@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-31T23:13:17.359Z",
+  "transport": "Compiled source + official factories; curl HTTP adapter and real interceptor",
+  "checks": [
+    {
+      "name": "Search pagination",
+      "query": "the",
+      "page1": 20,
+      "page2": 20
+    },
+    {
+      "name": "Browse termination",
+      "pages": 4,
+      "titles": 62
+    }
+  ]
+}

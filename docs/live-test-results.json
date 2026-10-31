@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-10-31T23:11:03.200Z",
+  "transport": "Compiled source + official factories; curl HTTP adapter and real interceptor",
+  "checks": [
+    {
+      "name": "Browse page 1",
+      "count": 20,
+      "first": "Rebirth Of The Strongest White Bone Demon"
+    },
+    {
+      "name": "Browse page 2",
+      "count": 20,
+      "first": "Undead Scourge: With One Wave Of My Hand, A Million Skeletons Rise."
+    },
+    {
+      "name": "Search bone",
+      "count": 2
+    },
+    {
+      "name": "No-result search",
+      "count": 0
+    },
+    {
+      "name": "Manga details",
+      "id": "rebirth-of-the-strongest-white-bone-demon-in-journey-to-the-west",
+      "title": "Rebirth Of The Strongest White Bone Demon",
+      "status": "ONGOING"
+    },
+    {
+      "name": "Cover image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 18316
+    },
+    {
+      "name": "Chapter list",
+      "id": "rebirth-of-the-strongest-white-bone-demon-in-journey-to-the-west",
+      "count": 26,
+      "first": "chapter-26",
+      "last": "chapter-1"
+    },
+    {
+      "name": "Reader pages",
+      "id": "rebirth-of-the-strongest-white-bone-demon-in-journey-to-the-west",
+      "chapter": "chapter-26",
+      "count": 8
+    },
+    {
+      "name": "First reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 323330
+    },
+    {
+      "name": "Last reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 1374211
+    },
+    {
+      "name": "Reader pages",
+      "id": "rebirth-of-the-strongest-white-bone-demon-in-journey-to-the-west",
+      "chapter": "chapter-1",
+      "count": 8
+    },
+    {
+      "name": "First reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 323330
+    },
+    {
+      "name": "Last reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 7179970
+    },
+    {
+      "name": "Manga details",
+      "id": "infinite-evolution-starting-from-zero",
+      "title": "Infinite Evolution Starting From Zero",
+      "status": "ONGOING"
+    },
+    {
+      "name": "Cover image",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 51093
+    },
+    {
+      "name": "Chapter list",
+      "id": "infinite-evolution-starting-from-zero",
+      "count": 139,
+      "first": "chapter-139",
+      "last": "chapter-1"
+    },
+    {
+      "name": "Reader pages",
+      "id": "infinite-evolution-starting-from-zero",
+      "chapter": "chapter-139",
+      "count": 6
+    },
+    {
+      "name": "First reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 323330
+    },
+    {
+      "name": "Last reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 4099868
+    },
+    {
+      "name": "Reader pages",
+      "id": "infinite-evolution-starting-from-zero",
+      "chapter": "chapter-1",
+      "count": 12
+    },
+    {
+      "name": "First reader image",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 629033
+    },
+    {
+      "name": "Last reader image",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 5618525
+    }
+  ]
+}
