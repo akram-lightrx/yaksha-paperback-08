@@ -9,7 +9,7 @@
 - Additional pagination validation: keyword search spans distinct pages, and browsing stops after four pages / 62 unique titles. See `live-pagination-results.json`.
 - Direct modern chapter endpoint check: HTTP 200 and 139 chapter entries for Infinite Evolution Starting From Zero.
 - Independent code review completed; both Important findings fixed with tests that failed before each fix and pass afterward.
-- Public repository created: https://github.com/akram-lightrx/yaksha-paperback-08. GitHub Pages is configured for the included Actions workflow; deployment is verified separately from iPhone compatibility.
+- Public repository created: https://github.com/akram-lightrx/yaksha-paperback-08. GitHub Actions build, tests and Pages deployment succeeded. The public manifest reports 0.8.7 / source 1.0.1; downloaded source and icon match the tested build byte-for-byte. Install: https://akram-lightrx.github.io/yaksha-paperback-08/.
 - iPhone installation and reading: pending.
 
 ## Transport limitation

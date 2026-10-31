@@ -20,5 +20,6 @@
     "@types/node": "22.19.7",
     "cheerio": "1.0.0-rc.12"
   },
-  "baseURL": "https://akram-lightrx.github.io/yaksha-paperback-08/"
+  "baseURL": "https://akram-lightrx.github.io/yaksha-paperback-08/",
+  "repositoryLogo": "YakshaComics/includes/icon.png"
 }
