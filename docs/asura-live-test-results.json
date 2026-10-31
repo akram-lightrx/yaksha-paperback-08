@@ -1,0 +1,116 @@
+{
+  "testedAt": "2026-10-31T23:39:53.598Z",
+  "sourceVersion": "1.0.0",
+  "transport": "Node fetch through compiled-source request and response interceptors",
+  "nativeCanvas": "Tile mapping unit-tested; native iPhone rendering remains unverified.",
+  "checks": [
+    {
+      "check": "browse pagination",
+      "pages": 2,
+      "counts": [
+        20,
+        20
+      ]
+    },
+    {
+      "check": "keyword pagination",
+      "counts": [
+        20,
+        20
+      ]
+    },
+    {
+      "check": "empty search terminates"
+    },
+    {
+      "check": "Overgeared cover",
+      "format": "webp",
+      "bytes": 458946
+    },
+    {
+      "check": "series",
+      "title": "Overgeared",
+      "id": "overgeared-3ebcc5a9",
+      "chapters": 347
+    },
+    {
+      "check": "reader",
+      "title": "Overgeared",
+      "chapter": 346,
+      "pages": 21,
+      "tiled": 0
+    },
+    {
+      "check": "Overgeared 346 first image",
+      "format": "webp",
+      "bytes": 233622
+    },
+    {
+      "check": "Overgeared 346 last image",
+      "format": "webp",
+      "bytes": 529506
+    },
+    {
+      "check": "reader",
+      "title": "Overgeared",
+      "chapter": 0,
+      "pages": 19,
+      "tiled": 0
+    },
+    {
+      "check": "Overgeared 0 first image",
+      "format": "webp",
+      "bytes": 117314
+    },
+    {
+      "check": "Overgeared 0 last image",
+      "format": "webp",
+      "bytes": 73764
+    },
+    {
+      "check": "SSS-Class Suicide Hunter cover",
+      "format": "webp",
+      "bytes": 525788
+    },
+    {
+      "check": "series",
+      "title": "SSS-Class Suicide Hunter",
+      "id": "sss-class-suicide-hunter-3ebcc5a9",
+      "chapters": 157
+    },
+    {
+      "check": "reader",
+      "title": "SSS-Class Suicide Hunter",
+      "chapter": 157,
+      "pages": 16,
+      "tiled": 0
+    },
+    {
+      "check": "SSS-Class Suicide Hunter 157 first image",
+      "format": "webp",
+      "bytes": 260122
+    },
+    {
+      "check": "SSS-Class Suicide Hunter 157 last image",
+      "format": "webp",
+      "bytes": 589766
+    },
+    {
+      "check": "reader",
+      "title": "SSS-Class Suicide Hunter",
+      "chapter": 1,
+      "pages": 18,
+      "tiled": 0
+    },
+    {
+      "check": "SSS-Class Suicide Hunter 1 first image",
+      "format": "webp",
+      "bytes": 227982
+    },
+    {
+      "check": "SSS-Class Suicide Hunter 1 last image",
+      "format": "webp",
+      "bytes": 30318
+    }
+  ]
+}
