@@ -4,18 +4,18 @@ const vm = require('node:vm');
 const path = require('node:path');
 const root = path.resolve(process.argv[2] || 'bundles');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'versioning.json'), 'utf8'));
-assert.equal(manifest.sources.length, 1, 'Expected exactly one source');
-const info = manifest.sources[0];
-assert(info && info.id === 'YakshaComics', 'Manifest contains an invalid source');
+assert.deepEqual(manifest.sources.map(x=>x.id).sort(), ['AsuraScans','YakshaComics']);
+for (const info of manifest.sources) {
 assert.equal(manifest.builtWith.types, '0.8.7');
 assert.equal(manifest.builtWith.toolchain, '0.8.7');
-assert.equal(info.version, require('../package.json').version);
+assert.equal(info.version, info.id === 'YakshaComics' ? '1.0.1' : '1.0.0');
 const icon = fs.readFileSync(path.join(root, info.id, 'includes', info.icon));
 assert.equal(icon.subarray(0,8).toString('hex'), '89504e470d0a1a0a', 'Missing PNG icon');
 const context = vm.createContext({});
 vm.runInContext(fs.readFileSync(path.join(root, info.id, 'source.js'), 'utf8'), context);
-assert.equal(typeof context.Sources.YakshaComics, 'function');
-assert.equal(context.Sources.YakshaComicsInfo.version, info.version);
+assert.equal(typeof context.Sources[info.id], 'function');
+assert.equal(context.Sources[info.id+'Info'].version, info.version);
+}
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 assert(html.includes('paperback://addRepo'), 'Missing installation link');
 assert(html.includes(require('../package.json').baseURL), 'Wrong installation URL');
