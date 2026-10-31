@@ -1,7 +1,7 @@
 name: Build and publish Paperback 0.8 repository
 on:
   push:
-    branches: [main]
+    branches: [main, feat/asura-08]
   pull_request:
   workflow_dispatch:
 permissions:
@@ -20,6 +20,9 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run build
+      - name: Inspect current Asura site
+        if: github.ref == 'refs/heads/feat/asura-08'
+        run: node scripts/asura-probe.cjs
       - run: npm test
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main'
